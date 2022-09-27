@@ -5,15 +5,10 @@ import List from './components/List';
 import Sub from './types'
 
 const INITIAL_STATE = [{
-  nick: 'dapelu',
-  subMonths: 3,
-  avatar: 'https://i.pravatar.cc/150?u=dapelu',
-  description: 'Dapelu hace de moderador a veces'
-},
-{
-  nick: 'sergio_serrano',
-  subMonths: 7,
-  avatar: 'https://i.pravatar.cc/150?u=sergio_serrano'
+  name: '',
+  birthday: '',
+  avatar: '',
+  description: ''
 }]
 
 interface AppState {
@@ -38,7 +33,7 @@ function App() {
   return (
     <>
     <div className="App" ref={divRef}>
-      <h1>Midu subs</h1>
+      <h1>Birthdays</h1>
       <List subs={subs} />
     </div>
     <Form onNewSub={handleNewSub}/>

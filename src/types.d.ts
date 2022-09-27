@@ -1,7 +1,7 @@
 interface Sub {
-    nick: string
+    name: string
     avatar: string
-    subMonths: number
+    birthday: string
     description?: string
 }
 
