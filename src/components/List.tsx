@@ -1,21 +1,21 @@
-import Sub from '../types'
+import Mate from '../types'
 import moment from 'moment'
 
 interface Props {
-    subs: Array<Sub>
+    mates: Array<Mate>
 }
 
-export default function List({subs} : Props) {
+export default function List({mates} : Props) {
     return (
         <ul>
         {
-          subs.map(sub => {
+          mates.map(mate => {
             return (
-              <li key={sub.name}>
-                <img src={sub.avatar} alt={sub.description} />
-                <h4>{sub.name}</h4>
-                <h3>{moment(sub.birthday).format('MMMM Do YYYY')}</h3>
-                <p>{sub.description?.substring(0, 100)}</p>
+              <li key={mate.name}>
+                <img src={mate.avatar} alt={mate.description} />
+                <h4>{mate.name}</h4>
+                <h3>{moment(mate.birthday).format('MMMM Do YYYY')}</h3>
+                <p>{mate.description?.substring(0, 100)}</p>
               </li>
             )
           })

@@ -1,12 +1,12 @@
-import React, { useReducer, useState } from "react"
-import Sub from '../types'
+import React, { useReducer } from "react"
+import Mate from '../types'
 
 interface FormState {
-    inputValues: Sub
+    inputValues: Mate
 }
 
 interface FormProps {
-    onNewSub: (newSub: Sub) => void
+    onNewMate: (newMate: Mate) => void
 }
 
 const INITIAL_STATE = {
@@ -39,14 +39,14 @@ const formReducer = (state: FormState["inputValues"], action: FormReducerAction)
     }
 }
 
-const Form = ({onNewSub}: FormProps) => {
+const Form = ({onNewMate}: FormProps) => {
     // const [inputValues, setInputValues] = useState<FormState["inputValues"]>(INITIAL_STATE)
 
     const [inputValues, dispatch] = useReducer(formReducer, INITIAL_STATE)
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
-        onNewSub(inputValues)
+        onNewMate(inputValues)
         handleClear()
     }
 
@@ -73,7 +73,7 @@ const Form = ({onNewSub}: FormProps) => {
                 <input onChange={handleChange} value={inputValues.birthday} type='date' name='birthday'/>
                 <input onChange={handleChange} value={inputValues.avatar} type='text' name='avatar' placeholder='avatar'/>
                 <textarea onChange={handleChange} value={inputValues.description} name='description' placeholder='description'/>
-                <button type="submit">Save new sub!</button>
+                <button type="submit">Save new mate!</button>
                 <button onClick={handleClear}>Clear form</button>
 
             </form>

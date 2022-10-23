@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Form from './components/Form';
 import List from './components/List';
-import Sub from './types'
+import Mate from './types'
 
 const INITIAL_STATE = [{
   name: '',
@@ -12,21 +12,21 @@ const INITIAL_STATE = [{
 }]
 
 interface AppState {
-  subs: Array<Sub>
-  newSubsNumber: number
+  mates: Array<Mate>
+  newMatesNumber: number
 }
 
 function App() {
-  const [subs, setSubs] = useState<AppState["subs"]>([])
-  const [newSubsNumber, setNewsSubsNumber] = useState<AppState["newSubsNumber"]>(0)
+  const [mates, setMates] = useState<AppState["mates"]>([])
+  // const [newMatesNumber, setNewsMatesNumber] = useState<AppState["newMatesNumber"]>(0)
   const divRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setSubs(INITIAL_STATE)
+    setMates(INITIAL_STATE)
   }, [])
 
-  const handleNewSub = (newSub : Sub): void => {
-    setSubs(subs => [...subs, newSub] )
+  const handleNewSub = (newSub : Mate): void => {
+    setMates(mates => [...mates, newSub] )
   }
 
 
@@ -34,9 +34,9 @@ function App() {
     <>
     <div className="App" ref={divRef}>
       <h1>Birthdays</h1>
-      <List subs={subs} />
+      <List mates={mates} />
     </div>
-    <Form onNewSub={handleNewSub}/>
+    <Form onNewMate={handleNewSub}/>
     </>
   );
 }
